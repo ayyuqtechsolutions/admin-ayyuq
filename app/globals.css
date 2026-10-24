@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { font-size: 17px; scroll-behavior: smooth; }
+  body {
+    background:
+      radial-gradient(1100px 520px at 90% -8%, #EAF0D8 0%, transparent 60%),
+      radial-gradient(800px 420px at -8% 12%, #FFEDD5 0%, transparent 55%),
+      #FAFBF6;
+    background-attachment: fixed;
+  }
+  ::-webkit-scrollbar { height: 8px; width: 8px; }
+  ::-webkit-scrollbar-thumb { background: #C9D6A6; border-radius: 8px; }
+  table thead th { text-transform: uppercase; letter-spacing: .07em; font-size: .72rem; font-weight: 700; }
+  table tbody tr { transition: background .15s; }
+  table tbody tr:hover { background: #F6F8EE; }
+}
+@layer components {
+  .card {
+    background: rgba(255, 255, 255, .92); backdrop-filter: blur(6px);
+    border: 1px solid #E4EBD0; border-radius: 1.25rem;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 14px 32px -16px rgba(74, 93, 35, .28);
+    overflow: hidden;
+  }
+  .fade-up { animation: fadeUp .55s ease both; }
+}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+/* ---------- soft chips & icon tiles (theme-aware) ---------- */
+.chip-good { background: #EAF0D8; color: #3A4A1B; }
+.chip-bad { background: #FFEDD5; color: #C2410C; }
+.chip-idle { background: #F3F4F6; color: #6B7280; }
+.icon-in { background: #EAF0D8; color: #4A5D23; }
+.icon-out { background: #FFEDD5; color: #EA580C; }
+.icon-warn { background: #FEF3C7; color: #B45309; }
+
+/* ---------- dark mode ---------- */
+.dark body {
+  background: radial-gradient(1100px 520px at 90% -8%, #1F2A12 0%, transparent 60%),
+    radial-gradient(800px 420px at -8% 12%, #2B1A0E 0%, transparent 55%), #0E1309;
+  background-attachment: fixed; color: #E8ECDD;
+}
+.dark .card { background: rgba(23, 32, 16, .92); border-color: #2B3A1A; box-shadow: 0 1px 2px rgba(0,0,0,.4), 0 14px 32px -16px rgba(0,0,0,.7); }
+.dark .bg-white { background: #1B2512; }
+.dark .bg-white\/80 { background: rgba(14, 19, 9, .85); }
+.dark [class~="bg-[#F3F6E8]"], .dark [class~="bg-[#F6F8EE]"] { background: #1F2A15; }
+.dark [class~="bg-[#EAF0D8]"] { background: #2B3A1A; }
+.dark [class~="hover:bg-[#F6F8EE]"]:hover, .dark [class~="hover:bg-[#F3F6E8]"]:hover { background: #26331A; }
+.dark table tbody tr:hover { background: #1F2A15; }
+.dark [class~="border-[#DDE5C8]"], .dark [class~="border-[#E4EBD0]"], .dark [class~="border-[#E5E7EB]"] { border-color: #2B3A1A; }
+.dark .text-gray-400 { color: #6B7A58; } .dark .text-gray-500 { color: #9AA68A; }
+.dark .text-gray-600 { color: #B4BEA4; } .dark .text-gray-700 { color: #D0D8C0; }
+.dark [class~="text-[#4A5D23]"], .dark [style^="color: rgb(74, 93, 35)"] { color: #A9C26A !important; }
+.dark [style^="color: rgb(20, 83, 45)"] { color: #6FCF97 !important; }
+.dark input, .dark select, .dark textarea { color: #E8ECDD; }
+.dark ::-webkit-scrollbar-thumb { background: #3A4A1B; }
+.dark .chip-good { background: rgba(143,168,90,.18); color: #C9DD97; }
+.dark .chip-bad { background: rgba(255,87,34,.18); color: #FDBA74; }
+.dark .chip-idle { background: #232D17; color: #9CA3AF; }
+.dark .icon-in { background: rgba(143,168,90,.18); color: #A9C26A; }
+.dark .icon-out { background: rgba(255,87,34,.18); color: #FB923C; }
+.dark .icon-warn { background: rgba(245,158,11,.18); color: #FCD34D; }
